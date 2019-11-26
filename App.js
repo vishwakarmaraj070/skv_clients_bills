@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Container} from 'native-base';
 import MyHeader from './Component/Header';
 import MyContent from './Component/Content';
@@ -7,8 +7,7 @@ import Store from './Component/Redux/Store';
 import firebase from 'firebase';
 
 const App = () => {
-  const [isInitial, setIsInitial] = useState(false);
-  useEffect(() => {
+  try {
     const firebaseConfig = {
       apiKey: 'AIzaSyCagU65G4DtUWRYiQN3O6sejRWzJP9smyw',
       authDomain: 'skvclients-4dc67.firebaseapp.com',
@@ -21,19 +20,18 @@ const App = () => {
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-    setIsInitial(true);
-  }, []);
+  } catch (err) {
+    console.log('Application is alrwady running in background');
+  }
 
   return (
     <>
-      {isInitial && (
-        <Provider store={Store}>
-          <Container>
-            <MyHeader />
-            <MyContent />
-          </Container>
-        </Provider>
-      )}
+      <Provider store={Store}>
+        <Container>
+          <MyHeader />
+          <MyContent />
+        </Container>
+      </Provider>
     </>
   );
 };

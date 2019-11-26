@@ -45,7 +45,7 @@ export const generateBillPDF = client => {
           ${client.items.map(
             (item, index) =>
               `<div
-            style="font-size: 14px; display: flex; justify-content: space-between; align-items: center; text-transform: capitalize; padding: 5px 0; line-height: 1.2; border-bottom: 1px solid steelblue; ">
+            style="font-size: 14px; display: flex; justify-content: space-between; align-items: center; text-transform: uppercase; padding: 5px 0; line-height: 1.2; border-bottom: 1px solid steelblue; ">
             <div style="width: 50%; text-align: left;">
               <p style="margin: 0; line-height: 1.2;">${item.item}</p>
             </div>
@@ -68,7 +68,7 @@ export const generateBillPDF = client => {
           <div
             style="display: flex; justify-content: space-between; align-items: center;padding: 5px 0; line-height: 1.2; border-bottom: 1px solid steelblue;">
             <div style="width: 60%; text-align: left;">
-              <p style="margin: 0;  font-size: 12px;">Thanks for showing interest with us! Hope we gave you a best server</p>
+              <p style="margin: 0;  font-size: 12px;">Thanks for showing interest with us! Hope we gave you a best service</p>
               <p style="margin: 0;  font-size: 12px; text-align: center; padding: 5px; background-color: lightskyblue; margin-top: 3px;">Thank You</p>
             </div>
             <div style="width: 40%; text-align: right;">
@@ -89,7 +89,7 @@ export const generateBillPDF = client => {
           </div>
           <div style="margin: 10px auto 0; padding: 10px; width: 70%; text-align: center; background-color: lightskyblue;">
             <p style="margin: 0; font-size: 1.2rem; color: #1976d2;">Feel free to contact us</p>
-            <p style="margin: 0; color: grey;">We will happy to give you our best</p>
+            <p style="margin: 0; color: grey;">We will happy to be with you</p>
           </div>
         </div>
     </div>

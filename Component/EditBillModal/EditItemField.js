@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import {View, Item, Picker, Icon, Input} from 'native-base';
 
 const EditItemField = ({index, FontAwesomeIcon, iconStyle, addItem, item}) => {
+  console.log('de', item);
   let SelectItemDB = useSelector(state =>
     Object.entries(state.SelectItems).map(([key, value]) => value),
   );
@@ -26,24 +27,16 @@ const EditItemField = ({index, FontAwesomeIcon, iconStyle, addItem, item}) => {
 
   //
   const handleNewItem = () => {
-    if (SelectItemDB.indexOf(newItem) !== -1) {
-      firebase
-        .database()
-        .ref(`items/${selectItems.length}`)
-        .set(newItem, () => {
-          setItems({
-            ...items,
-            item: newItem,
-          });
-          setAddNewItem(false);
+    firebase
+      .database()
+      .ref(`items/${selectItems.length}`)
+      .set(newItem, () => {
+        setItems({
+          ...items,
+          item: newItem,
         });
-    } else {
-      setItems({
-        ...items,
-        item: newItem,
+        setAddNewItem(false);
       });
-      setAddNewItem(false);
-    }
   };
 
   useEffect(() => {
@@ -80,7 +73,7 @@ const EditItemField = ({index, FontAwesomeIcon, iconStyle, addItem, item}) => {
               placeholder="Select item"
               placeholderStyle={{color: '#bfc6ea'}}
               placeholderIconColor="#007aff"
-              selectedValue={items.item}
+              selectedValue={items.item.toUpperCase()}
               onValueChange={value => handleSelect(value)}>
               {newItem.length ? (
                 <Picker.Item

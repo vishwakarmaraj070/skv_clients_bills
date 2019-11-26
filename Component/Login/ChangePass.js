@@ -59,6 +59,7 @@ const ChangePass = ({setIsChangePass}) => {
           style={{
             flex: 0,
             width: '100%',
+            marginTop: -60,
           }}>
           <CardItem>
             <H2
@@ -73,24 +74,26 @@ const ChangePass = ({setIsChangePass}) => {
           </CardItem>
           <CardItem>
             <Body>
-              <Item rounded error={error}>
+              <Item style={{marginBottom: 20}} rounded error={error}>
                 <Input
+                  style={{paddingLeft: 20}}
                   autoFocus
                   secureTextEntry={true}
                   value={old}
                   onBlur={() => handleOld(old)}
                   onChangeText={value => handleOld(value)}
-                  placeholder="Enter Old Password"
+                  placeholder="Old Password"
                 />
               </Item>
               <Item rounded>
                 <Input
+                  style={{paddingLeft: 20}}
                   disabled={old.length > 4 ? false : true}
                   secureTextEntry={true}
                   value={newPass}
                   onBlur={() => handleNew(newPass)}
                   onChangeText={value => handleNew(value)}
-                  placeholder="Enter New Password"
+                  placeholder="New Password"
                 />
               </Item>
             </Body>
@@ -128,10 +131,11 @@ const Styles = StyleSheet.create({
   cardCenter: {
     display: 'flex',
     width: '100%',
-    height: '85%',
+    height: '100%',
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'lightblue',
   },
 });
 

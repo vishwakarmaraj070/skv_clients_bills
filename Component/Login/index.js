@@ -43,7 +43,7 @@ const Login = ({setIsLogin}) => {
     <>
       {!isChangePass ? (
         <View style={Styles.cardCenter}>
-          <Card style={{flex: 0, width: '100%'}}>
+          <Card style={{flex: 0, width: '100%', marginTop: -60}}>
             <CardItem>
               <H2
                 style={{
@@ -59,6 +59,7 @@ const Login = ({setIsLogin}) => {
               <Body>
                 <Item rounded error={error}>
                   <Input
+                    style={{paddingLeft: 20}}
                     autoFocus
                     secureTextEntry={true}
                     value={login}
@@ -101,10 +102,11 @@ const Styles = StyleSheet.create({
   cardCenter: {
     display: 'flex',
     width: '100%',
-    height: '85%',
+    height: '100%',
     padding: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'lightblue',
   },
 });
 

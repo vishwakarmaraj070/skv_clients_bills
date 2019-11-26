@@ -31,24 +31,16 @@ const ItemFiled = ({index, FontAwesomeIcon, iconStyle, addItem}) => {
 
   //
   const handleNewItem = () => {
-    if (SelectItemDB.indexOf(newItem) !== -1) {
-      firebase
-        .database()
-        .ref(`items/${selectItems.length}`)
-        .set(newItem, () => {
-          setItems({
-            ...items,
-            item: newItem,
-          });
-          setAddNewItem(false);
+    firebase
+      .database()
+      .ref(`items/${selectItems.length}`)
+      .set(newItem, () => {
+        setItems({
+          ...items,
+          item: newItem,
         });
-    } else {
-      setItems({
-        ...items,
-        item: newItem,
+        setAddNewItem(false);
       });
-      setAddNewItem(false);
-    }
   };
 
   useEffect(() => {
